@@ -1,7 +1,7 @@
 # ![](https://gravatar.com/avatar/11d3bc4c3163e3d238d558d5c9d98efe?s=64) aptible/docker-jersey-example
 How to Deploy Your First Jersey App on Aptible
 
-For reference, we are going to replicate the Jersey setup guide using their [Heroku webapp Maven archetype](https://jersey.java.net/documentation/latest/getting-started.html#heroku-webapp).
+For reference, we are going to replicate the Jersey setup guide using their [Maven archetype for Heroku webapps](https://jersey.java.net/documentation/latest/getting-started.html#heroku-webapp).
 
 ## Local Setup
 This guide assumes you have Java, the Java compiler, Maven, and the [Aptible CLI tool](https://support.aptible.com/hc/en-us/articles/202320954-How-do-I-install-the-command-line-interface-CLI-tool-) all set up and working.
@@ -51,16 +51,17 @@ GitHub has a [good set of instructions for generating SSH keys](https://help.git
 ## Steps
 ### 1. Write some code
 
-The sample code in `example-aptible-jersey-app` was generated using the following command:
+The sample app in this repo was generated using:
 ```
 mvn archetype:generate -DarchetypeArtifactId=jersey-heroku-webapp \
                        -DarchetypeGroupId=org.glassfish.jersey.archetypes \
                        -DinteractiveMode=false -DgroupId=com.example \
                        -DartifactId=example-aptible-jersey-app \
                        -Dpackage=com.example -DarchetypeVersion=2.14
-cd example-aptible-jersey-app/
 ```
-You can clone this repo and use that code for your example, but we recommend you generate it from the Maven archetype.
+We made a few small changes to make it say "Hello, Aptible!"
+
+You can clone this repo and use it for your example, but we recommend you generate it from the Maven archetype.
 
 Of course, you can always start with your own source, too.
 
@@ -118,6 +119,8 @@ git push aptible master
 ```
 
 If it doesn't work at first, make sure you committed your Dockerfile. You will likely want to [set up logs for your account](https://support.aptible.com/hc/en-us/articles/202315974-How-do-I-set-up-production-logs-) in order to troubleshoot as you go.
+
+Also note that sometimes VHOSTs take a few minutes to provision.
 
 If you have any questions, [contact us](https://www.aptible.com/support/) and we will be happy to answer them. Good luck, and have fun!
 
